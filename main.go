@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"whatisalexlisteningto.com/api/models"
 	"whatisalexlisteningto.com/api/utils"
 )
 
@@ -20,4 +23,17 @@ func main() {
 
 	fakeSecretKey := os.Getenv("FAKE_SECRET_KEY")
 	customLogger.Infoln("The fake secret key is", fakeSecretKey)
+
+	r := gin.Default()
+	albumsArray := []models.Album{{Name: "Stadium Arcadium", Artist: "Red Hot Chili Peppers"}}
+	r.GET("/albums", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"data": gin.H{
+				"albums": albumsArray,
+			},
+		})
+	})
+	const address = "localhost:3001"
+	r.Run(address)
+	customLogger.Infoln("Running on address", "localhost:3001")
 }
