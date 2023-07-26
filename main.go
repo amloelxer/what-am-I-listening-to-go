@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/joho/godotenv"
 	"whatisalexlisteningto.com/api/utils"
@@ -16,4 +17,7 @@ func main() {
 	}
 	tempArray := []string{"one", "two", "three"}
 	fmt.Println(utils.ArrayToString(tempArray))
+
+	fakeSecretKey := os.Getenv("FAKE_SECRET_KEY")
+	customLogger.Infoln("The fake secret key is", fakeSecretKey)
 }
