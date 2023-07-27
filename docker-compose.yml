@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:15.3
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmpdata/postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=alex
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=what-am-i-listening-to
