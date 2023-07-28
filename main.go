@@ -7,7 +7,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"whatisalexlisteningto.com/api/models"
 	"whatisalexlisteningto.com/api/utils"
 )
 
@@ -25,11 +24,11 @@ func main() {
 	customLogger.Infoln("The fake secret key is", fakeSecretKey)
 
 	r := gin.Default()
-	albumsArray := []models.Album{{Name: "Stadium Arcadium", Artist: "Red Hot Chili Peppers"}}
+	// albumsArray := []models.Album{{Name: "Stadium Arcadium", Artist: "Red Hot Chili Peppers"}}
 	r.GET("/albums", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"data": gin.H{
-				"albums": albumsArray,
+				"okay": true,
 			},
 		})
 	})

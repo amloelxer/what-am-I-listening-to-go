@@ -1,4 +1,4 @@
-wipe     = true
+cdwipe     = true
 no-tests = true
 add-enum-types = true
 
