@@ -1,0 +1,13 @@
+wipe     = true
+no-tests = true
+add-enum-types = true
+
+[psql]
+    dbname = "what-am-i-listening-to"
+    user= "alex"
+    port = 5432
+    host = "127.0.0.1"
+    pass= "password"
+    blacklist = ["goose_db_version"]
+    sslmode="disable"
+
